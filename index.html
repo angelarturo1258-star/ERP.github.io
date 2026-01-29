@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestro Proyecto 🌸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+   <link rel="icon" href="Imagenes/favicon.ico">
+</head>
+<body>
+
+<!-- PANTALLA INICIAL -->
+<div id="intro" class="intro">
+  <div class="intro-box">
+    <p>
+      Supongo que si llegaste hasta aquí es porque 
+      <p>ya terminaste de leer la carta.</p>
+      <p>Entonces, necesito de tu ayuda.</p>
+
+    <button id="btnSaber">Si aceptas, da clic en este bo
+      tón</button>
+  </div>
+</div>
+
+<!-- MODAL SI / NO -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Tengo un proyecto en mente y necesito de mi compañera del trabajo, pero ahora...</h2>
+    <h2>Para ser mi compañera de vida en este... Proyecto, voltea a verme. </h2>
+    <br><h3>Solo depende de la respuesta que des deberás dar clic.</h3>
+    <br><h3>¿Aceptaste?</h3>
+    <br><div class="modal-buttons">
+      <button id="btnSi">Sí 💜</button>
+      <button id="btnNo">No 🖤</button>
+    </div>
+  </div>
+</div>
+
+<!-- MENSAJE SI -->
+<div id="mensajeSi" class="modal hidden">
+  <div class="modal-content">
+    <h1><strong><br><p>Por un momento creí que no llegarías hasta esta ventana jaja.</p></strong> </h1>
+    <br><h2><p>Mira, te tengo tres opciones, pero esta vez puedes escoger todas.</p></h2>
+    <p><ol>
+       <strong><br><p> -Nuestros Recuerdos</p></strong>
+       <strong><br><p> -Nuestras Canciones</p></strong>
+       <strong><br><p> -Palabras Bonitas</p></strong>
+    </ol></p>
+
+    <strong><br><p>Este pequeño sitio lo hice pensando en ti, en nosotros, aunque es chico, espero que te guste.</p></strong> 
+
+
+    <br><br><button onclick="cerrarMensaje()">Empezar</button>
+  </div>
+</div>
+
+<!-- MENSAJE NO -->
+<div id="mensajeNo" class="modal hidden">
+  <div class="modal-content">
+   <br> <p>Uhmm… Creo que te equivocaste de botón, pero puedes volver a intentar. 😎</p>
+   <br> <button onclick="location.reload()">Volver</button>
+  </div>
+</div>
+
+<!-- CONTENIDO DE INICIO -->
+<main id="contenido" class="hidden">
+  <h1>¿Ya sabes también tú por qué me estas besando?<br>Te Amo Muchisímo.</h1>
+
+  <div class="nav-buttons">
+    <a href="canciones.html">🎵 Canciones 🎵</a>
+    <a href="recuerdos.html">💌 Recuerdos Bonitos💌</a>
+    <a href="frases.html">🏵️ Palabras Bonitas 🏵️</a>
+  </div>
+
+  <div>  
+    <!-- SE CAMBIA A VIDEO EXCEPTO LA CLASE -->
+  <video
+  class="foto-principal"
+  autoplay
+  muted
+  loop
+  playsinline
+  >
+  <source src="Imagenes/EA.mp4" type="video/mp4">
+  </video>
+    <br>
+<h1>No nos parecemos mucho, pero fue lo mejor que salió jaja. </h1>
+  </div>
+ 
+
+</main>
+
+<!-- "LINTERNAS" ECHAS CON CSS -->
+<div id="linternas"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
