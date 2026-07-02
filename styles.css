@@ -1,0 +1,1413 @@
+/*==================================================
+        VARIABLES GLOBALES
+==================================================*/
+
+:root{
+
+    --primary-color:#74d6ff;
+    --secondary-color:#9d6bff;
+    --accent-color:#d4f5ff;
+
+    --background-dark:#01030b;
+    --glass:rgba(255,255,255,.08);
+    --glass-border:rgba(255,255,255,.15);
+
+    --text-color:#ffffff;
+
+    --shadow:
+    0 0 15px rgba(116,214,255,.35),
+    0 0 35px rgba(157,107,255,.20);
+
+    --transition:.45s ease;
+
+    --blur:18px;
+
+}
+
+/*==================================================
+                    RESET
+==================================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:var(--background-dark);
+
+    color:var(--text-color);
+
+    font-family:'Poppins',sans-serif;
+
+    position:relative;
+
+}
+
+/*==================================================
+                IMAGEN DE FONDO
+==================================================*/
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:url("Imagenes/constelación.jpg");
+
+    /* CAMBIA AQUÍ EL NOMBRE DE TU IMAGEN */
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    transform:scale(1.08);
+
+    filter:blur(var(--blur));
+
+    transition:1.2s;
+
+    z-index:-8;
+
+}
+
+/*==================================================
+            IMAGEN SIN DESENFOQUE
+==================================================*/
+
+.background.show{
+
+    filter:blur(0px);
+
+    transform:scale(1);
+
+}
+
+/*==================================================
+                    OVERLAY
+==================================================*/
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+    rgba(0,0,30,.45),
+
+    rgba(0,0,0,.75)
+
+    );
+
+    z-index:-7;
+
+}
+
+/*==================================================
+                NEBULOSA
+==================================================*/
+
+.nebula{
+
+    position:fixed;
+
+    inset:-25%;
+
+    background:
+
+    radial-gradient(circle at 20% 30%,
+
+    rgba(140,80,255,.18),
+
+    transparent 45%),
+
+
+    radial-gradient(circle at 80% 65%,
+
+    rgba(0,180,255,.16),
+
+    transparent 50%),
+
+
+    radial-gradient(circle at 50% 80%,
+
+    rgba(255,255,255,.05),
+
+    transparent 55%);
+
+    filter:blur(70px);
+
+    animation:nebulaMove 35s ease-in-out infinite alternate;
+
+    z-index:-6;
+
+}
+
+/*==================================================
+        CONTENEDORES DE EFECTOS
+==================================================*/
+
+#stars,
+#sparkles,
+#shootingStars,
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+/*==================================================
+                CONTENIDO
+==================================================*/
+
+.container{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+/*==================================================
+                TÍTULO
+==================================================*/
+
+.title{
+
+    font-size:clamp(2.2rem,5vw,4.5rem);
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 15px #7adfff,
+
+    0 0 30px #66b6ff,
+
+    0 0 45px #b170ff;
+
+    animation:titleGlow 4s infinite alternate;
+
+}
+
+/*==================================================
+                SUBTÍTULO
+==================================================*/
+
+.subtitle{
+
+    margin-top:15px;
+
+    font-size:1.05rem;
+
+    opacity:.88;
+
+    letter-spacing:1px;
+
+    color:#e8f8ff;
+
+}
+
+/*==================================================
+            CONTENEDOR BOTONES
+==================================================*/
+
+.buttons{
+
+    margin-top:55px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media(max-width:900px){
+
+.title{
+
+    font-size:3rem;
+
+}
+
+.subtitle{
+
+    font-size:.95rem;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.title{
+
+    font-size:2.2rem;
+
+}
+
+.subtitle{
+
+    font-size:.9rem;
+
+}
+
+.container{
+
+    padding:18px;
+
+}
+
+}
+
+/*==================================================
+                ANIMACIONES
+==================================================*/
+
+@keyframes nebulaMove{
+
+0%{
+
+transform:translate(0,0) scale(1);
+
+}
+
+100%{
+
+transform:translate(-4%,3%) scale(1.15);
+
+}
+
+}
+
+@keyframes titleGlow{
+
+0%{
+
+text-shadow:
+
+0 0 12px #72d8ff,
+
+0 0 22px #4faeff;
+
+}
+
+100%{
+
+text-shadow:
+
+0 0 18px #b170ff,
+
+0 0 45px #72d8ff,
+
+0 0 70px #ffffff;
+
+}
+
+}
+
+
+/*==================================================
+              ESTILO DE LOS BOTONES 
+==================================================*/
+/*==================================================
+            BOTONES GALÁCTICOS
+==================================================*/
+
+.buttons button{
+
+    position:relative;
+
+    width:270px;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:all .45s ease;
+
+    box-shadow:
+
+        0 0 20px rgba(116,214,255,.15),
+
+        inset 0 0 12px rgba(255,255,255,.05);
+
+}
+
+
+/*==============================
+    BORDE ANIMADO
+==============================*/
+
+.buttons button::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+        45deg,
+        #5ed8ff,
+        #9d6bff,
+        #5ed8ff,
+        #ffffff,
+        #5ed8ff
+    );
+
+    background-size:400%;
+
+    animation:borderFlow 8s linear infinite;
+
+    z-index:-2;
+
+}
+
+
+/*==============================
+        INTERIOR
+==============================*/
+
+.buttons button::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    border-radius:16px;
+
+    background:
+
+    linear-gradient(
+
+        rgba(6,10,35,.82),
+
+        rgba(15,18,40,.65)
+
+    );
+
+    z-index:-1;
+
+}
+
+
+/*==============================
+        REFLEJO
+==============================*/
+
+.buttons button span{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.buttons button::selection{
+
+    background:transparent;
+
+}
+
+
+/*==============================
+        BRILLO DESLIZANTE
+==============================*/
+
+.buttons button .shine{
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-35%;
+
+    width:45%;
+
+    height:320%;
+
+    background:
+
+    linear-gradient(
+
+        transparent,
+
+        rgba(255,255,255,.55),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    animation:shineMove 6s linear infinite;
+
+}
+
+
+/*==============================
+        HOVER
+==============================*/
+
+.buttons button:hover{
+
+    transform:
+
+        translateY(-6px)
+
+        scale(1.04);
+
+    box-shadow:
+
+        0 0 25px rgba(0,220,255,.45),
+
+        0 0 55px rgba(157,107,255,.28),
+
+        0 0 90px rgba(255,255,255,.12);
+
+}
+
+
+/*==============================
+        CLICK
+==============================*/
+
+.buttons button:active{
+
+    transform:
+
+        scale(.96);
+
+}
+
+
+/*==============================
+        HALO
+==============================*/
+
+.buttons button:hover::before{
+
+    filter:brightness(1.4);
+
+}
+
+
+/*==============================
+    TEXTO LUMINOSO
+==============================*/
+
+.buttons button{
+
+    text-shadow:
+
+    0 0 6px rgba(255,255,255,.45),
+
+    0 0 12px rgba(116,214,255,.45);
+
+}
+
+
+/*==============================
+        EFECTO RESPIRACIÓN
+==============================*/
+
+#btnFavoritas{
+
+    animation:
+
+    pulseBlue 5s ease-in-out infinite;
+
+}
+
+
+#btnConstellation{
+
+    animation:
+
+    pulsePurple 5s ease-in-out infinite;
+
+}
+
+
+/*==================================================
+            APARICIÓN
+==================================================*/
+
+.buttons{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    animation:
+
+    buttonsAppear 1.8s ease forwards;
+
+    animation-delay:1.4s;
+
+}
+
+
+/*==================================================
+        ANIMACIONES
+==================================================*/
+
+@keyframes borderFlow{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:400%;
+
+}
+
+}
+
+
+@keyframes shineMove{
+
+0%{
+
+left:-45%;
+
+}
+
+100%{
+
+left:150%;
+
+}
+
+}
+
+
+@keyframes pulseBlue{
+
+0%{
+
+box-shadow:
+
+0 0 18px rgba(116,214,255,.20);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 35px rgba(116,214,255,.55);
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 18px rgba(116,214,255,.20);
+
+}
+
+}
+
+
+@keyframes pulsePurple{
+
+0%{
+
+box-shadow:
+
+0 0 18px rgba(157,107,255,.22);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 38px rgba(157,107,255,.55);
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 18px rgba(157,107,255,.22);
+
+}
+
+}
+
+
+@keyframes buttonsAppear{
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/*==================================================
+        RESPONSIVE BOTONES
+==================================================*/
+
+@media(max-width:650px){
+
+.buttons{
+
+flex-direction:column;
+
+}
+
+.buttons button{
+
+width:90%;
+
+max-width:300px;
+
+height:60px;
+
+font-size:.95rem;
+
+}
+
+}
+
+
+
+/*==================================================
+            ESTRELLAS GENERADAS POR JS
+==================================================*/
+
+.star{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:white;
+
+    pointer-events:none;
+
+    opacity:.9;
+
+    animation:starTwinkle linear infinite;
+
+}
+
+
+/*==================================================
+            DESTELLOS
+==================================================*/
+
+.sparkle{
+
+    position:absolute;
+
+    width:3px;
+
+    height:3px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:
+
+        0 0 10px #ffffff,
+        0 0 20px #7fdfff,
+        0 0 35px #7fdfff;
+
+    animation:sparkleFlash ease-in-out infinite;
+
+}
+
+
+/*==================================================
+            PARTÍCULAS ESPACIALES
+==================================================*/
+
+.particle{
+
+    position:absolute;
+
+    width:2px;
+
+    height:2px;
+
+    border-radius:50%;
+
+    background:rgba(180,230,255,.55);
+
+    filter:blur(.3px);
+
+    animation:particleFloat linear infinite;
+
+}
+
+
+/*==================================================
+            PROFUNDIDAD
+==================================================*/
+
+#stars{
+
+    z-index:-5;
+
+}
+
+#sparkles{
+
+    z-index:-4;
+
+}
+
+#particles{
+
+    z-index:-3;
+
+}
+
+
+/*==================================================
+        ANIMACIÓN ESTRELLAS
+==================================================*/
+
+@keyframes starTwinkle{
+
+    0%{
+
+        opacity:.15;
+
+        transform:scale(.6);
+
+    }
+
+    20%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+    45%{
+
+        opacity:.35;
+
+    }
+
+    70%{
+
+        opacity:1;
+
+        transform:scale(1.2);
+
+    }
+
+    100%{
+
+        opacity:.2;
+
+        transform:scale(.7);
+
+    }
+
+}
+
+
+/*==================================================
+        DESTELLOS
+==================================================*/
+
+@keyframes sparkleFlash{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.3);
+
+    }
+
+    40%{
+
+        opacity:1;
+
+        transform:scale(2);
+
+    }
+
+    60%{
+
+        opacity:.4;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:scale(.2);
+
+    }
+
+}
+
+
+/*==================================================
+        PARTÍCULAS
+==================================================*/
+
+@keyframes particleFloat{
+
+    from{
+
+        transform:
+
+            translateY(0px)
+
+            translateX(0px);
+
+        opacity:.15;
+
+    }
+
+    25%{
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        transform:
+
+            translateY(-45px)
+
+            translateX(12px);
+
+    }
+
+    75%{
+
+        opacity:.30;
+
+    }
+
+    to{
+
+        transform:
+
+            translateY(-90px)
+
+            translateX(-10px);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/*==================================================
+            ANIMACIÓN DEL TÍTULO
+==================================================*/
+
+.title{
+
+    animation:
+
+        titleGlow 4s infinite alternate,
+
+        floatingTitle 7s ease-in-out infinite;
+
+}
+
+
+@keyframes floatingTitle{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+
+/*==================================================
+        SUBTÍTULO
+==================================================*/
+
+.subtitle{
+
+    animation:subtitleFade 5s ease-in-out infinite;
+
+}
+
+
+@keyframes subtitleFade{
+
+    0%{
+
+        opacity:.65;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.65;
+
+    }
+
+}
+
+
+/*==================================================
+        CONTENEDOR PRINCIPAL
+==================================================*/
+
+.container{
+
+    animation:containerAppear 2s ease;
+
+}
+
+
+@keyframes containerAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/*==================================================
+        PEQUEÑO BRILLO GENERAL
+==================================================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(circle,
+
+        rgba(255,255,255,.04),
+
+        transparent 70%);
+
+    animation:spacePulse 12s infinite alternate;
+
+    pointer-events:none;
+
+}
+
+
+@keyframes spacePulse{
+
+    from{
+
+        opacity:.25;
+
+    }
+
+    to{
+
+        opacity:.65;
+
+    }
+
+}
+
+
+/*==================================================
+            ESTRELLAS FUGACES
+==================================================*/
+
+.shooting-star{
+
+    position:absolute;
+
+    width:160px;
+
+    height:2px;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.95),
+
+        transparent
+
+    );
+
+    border-radius:50%;
+
+    filter:
+
+    drop-shadow(0 0 8px #8fe8ff)
+
+    drop-shadow(0 0 20px #ffffff);
+
+    transform:rotate(-35deg);
+
+    opacity:0;
+
+}
+
+
+/*==================================================
+            ANIMACIÓN FUGAZ
+==================================================*/
+
+.shooting-star.active{
+
+    animation:
+
+    shooting 1.4s linear forwards;
+
+}
+
+
+@keyframes shooting{
+
+
+    0%{
+
+        opacity:0;
+
+        transform:
+
+        translate(0,0)
+
+        rotate(-35deg);
+
+    }
+
+
+    15%{
+
+        opacity:1;
+
+    }
+
+
+    100%{
+
+        opacity:0;
+
+        transform:
+
+        translate(-600px,350px)
+
+        rotate(-35deg);
+
+    }
+
+}
+
+
+
+/*==================================================
+        EFECTO EXTRA EN BOTONES
+==================================================*/
+
+
+.buttons button{
+
+    isolation:isolate;
+
+}
+
+
+/* pequeño pulso al tocar */
+
+.buttons button:active{
+
+    box-shadow:
+
+    0 0 45px rgba(116,214,255,.8),
+
+    inset 0 0 25px rgba(255,255,255,.2);
+
+}
+
+
+
+/*==================================================
+        MODO CONSTELACIÓN
+==================================================*/
+
+
+body.constellation-mode .nebula{
+
+    opacity:.25;
+
+}
+
+
+body.constellation-mode #stars{
+
+    opacity:.55;
+
+    transition:.8s;
+
+}
+
+
+body.constellation-mode #sparkles{
+
+    opacity:.3;
+
+    transition:.8s;
+
+}
+
+
+body.constellation-mode .title,
+body.constellation-mode .subtitle{
+
+    opacity:.75;
+
+}
+
+
+
+/*==================================================
+        TRANSICIONES GLOBALES
+==================================================*/
+
+
+.background,
+.nebula,
+#stars,
+#sparkles,
+.title,
+.subtitle{
+
+    transition:
+
+    opacity .8s ease,
+
+    filter .8s ease;
+
+}
+
+
+
+/*==================================================
+        AJUSTES MÓVILES
+==================================================*/
+
+
+@media(max-width:600px){
+
+
+    .background{
+
+        background-position:center center;
+
+        transform:scale(1.15);
+
+    }
+
+
+    .nebula{
+
+        filter:blur(55px);
+
+    }
+
+
+    .shooting-star{
+
+        width:100px;
+
+    }
+
+
+}
+
+
+
+/*==================================================
+        PANTALLAS GRANDES
+==================================================*/
+
+
+@media(min-width:1600px){
+
+
+    .title{
+
+        font-size:5rem;
+
+    }
+
+
+    .buttons button{
+
+        width:320px;
+
+        height:75px;
+
+    }
+
+
+}
+
+
+
+
+
+
+button,
+.title{
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+}
+
